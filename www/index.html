@@ -72,9 +72,18 @@
 <script>
 
 $("#clickme").click(function(){
-    alert("you click me!");
 
-    $("#box").load('page1.html');    
+    var button = "test";
+    var title = "test";
+
+    $.post("http://211.110.140.24/guamkorea/app/first.php",{button,title},function(data) {
+            console.log("ajax works test");
+
+            $("#box").html(data);
+
+            // $("#box").load('page1.html');
+		});		
+
 
 })
 
