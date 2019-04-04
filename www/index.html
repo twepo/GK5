@@ -38,6 +38,14 @@
         
         <a href="#" id="clickme">CLICKME!anddisable!</a>
 
+
+        <style>
+        #box{
+            background-color: red;
+            width: 500px;
+            height: 500px;
+        }
+        </style>
         <div id="box"></div>
 
 
@@ -63,9 +71,12 @@
 
 <script>
 
-    $("#clickme").click(function(){
-        alert("you click me!");
-    })
+$("#clickme").click(function(){
+    alert("you click me!");
+
+    $("#box").load('page1.html');    
+
+})
 
 console.log("hello world222");
 </script>
