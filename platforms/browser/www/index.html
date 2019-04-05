@@ -18,6 +18,9 @@
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/jqm.js"></script>
 
+    <script type="text/javascript" src="js/pulltorefresh.js"></script>
+
+
 
     <style>
 
@@ -60,46 +63,28 @@
 
 
 $(document).ready(function() {
-    var startTime = new Date().getMilliseconds();
 
     console.log("hello jqm!");
 
     var button = "prototype";
     $.post("http://211.110.140.24/guamkorea/app/index.php",{button},function(data) {
-            var endTime = new Date().getMilliseconds();
-
+            
             $("#box").html(data);
 
-            $("#loading").html(endTime);
 		});
 
    
 });
 
+</script>
 
 
-
-
-
-// $("#clickme").click(function(){
-
-//     //제일 좋은 방법은 여기서 AJAX로 index.php를 가져오는것
-//     //테스트해볼끼?
-
-//     var button = "test";
-//     var title = "test";
-
-//     $.post("http://211.110.140.24/guamkorea/app/first.php",{button,title},function(data) {
-//             console.log("ajax works test");
-
-//             $("#box").html(data);
-
-//             // $("#box").load('page1.html');
-// 		});		
-
-
-// })
-
-
-
+<script>
+PullToRefresh.init({
+    mainElement: 'body',
+    onRefresh: function(){
+        // What do you want to do when the user does the pull-to-refresh gesture
+        window.location.reload(); 
+    }
+});
 </script>
