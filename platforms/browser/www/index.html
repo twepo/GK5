@@ -1,91 +1,105 @@
 <!DOCTYPE html>
-<!--
-    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
-
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
-
 <head>
     <meta charset="utf-8" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
-    
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>Hello World</title>
+    <link rel="stylesheet" type="text/css" href="css/jqm.css" />
+    <title>괌한인회</title>
 </head>
 
 <body>
-    <div class="app">
-        
-        <a href="#" id="clickme">CLICKME!anddisable!</a>
 
-
-        <style>
-        #box{
-            background-color: red;
-            width: 500px;
-            height: 500px;
-        }
-        </style>
-        <div id="box"></div>
-
-
-
-
-
-
-    </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jqm.js"></script>
+
+
+    <style>
+
+    body {
+        -webkit-touch-callout: none;                
+        /* prevent callout to copy image, etc when tap to hold */
+        -webkit-text-size-adjust: none;             
+        /* prevent webkit from resizing text to fit */
+        -webkit-user-select: none;                  
+        /* prevent copy paste, to allow, change 'none' to 'text' */
+        background-color:#fafafa;
+        background-attachment:fixed;
+        font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+        font-size:12px;
+        height:100%;
+        margin:0px;
+        padding:0px;
+        text-transform:uppercase;
+        width:100%;
+    }
+
+    #box{
+        /* background-color:red; */
+        width: 100%;
+        height: 80vh; /* viewport height */
+    }
+    </style>
+
+    <div id="loading"></div>
+    <div id="box"></div>
 
 
     <script type="text/javascript">
         // app.initialize();
     </script>
 
-
-
 </body>
-
 </html>
-
 <script>
 
-$("#clickme").click(function(){
 
-    var button = "test";
-    var title = "test";
+$(document).ready(function() {
+    var startTime = new Date().getMilliseconds();
 
-    $.post("http://211.110.140.24/guamkorea/app/first.php",{button,title},function(data) {
-            console.log("ajax works test");
+    console.log("hello jqm!");
+
+    var button = "prototype";
+    $.post("http://211.110.140.24/guamkorea/app/index.php",{button},function(data) {
+            var endTime = new Date().getMilliseconds();
 
             $("#box").html(data);
 
-            // $("#box").load('page1.html');
-		});		
+            $("#loading").html(endTime);
+		});
+
+   
+});
 
 
-})
 
-console.log("hello world222");
+
+
+
+// $("#clickme").click(function(){
+
+//     //제일 좋은 방법은 여기서 AJAX로 index.php를 가져오는것
+//     //테스트해볼끼?
+
+//     var button = "test";
+//     var title = "test";
+
+//     $.post("http://211.110.140.24/guamkorea/app/first.php",{button,title},function(data) {
+//             console.log("ajax works test");
+
+//             $("#box").html(data);
+
+//             // $("#box").load('page1.html');
+// 		});		
+
+
+// })
+
+
+
 </script>
