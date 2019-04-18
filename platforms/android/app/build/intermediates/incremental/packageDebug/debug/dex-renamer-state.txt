@@ -1,0 +1,4 @@
+#Thu Apr 18 14:54:24 KST 2019
+base.0=C\:\\Users\\Travelweapon\\Downloads\\ENGINE\\PLACE_INTRO\\GUAMKOREA\\android\\GK5\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex

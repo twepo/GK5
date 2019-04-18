@@ -1113,35 +1113,35 @@ function loadRecentScrollDectect(){
 function startMainBanner(){
 	
 		
-		var button = 'SELECT_MAIN_BANNER';		
-		$.post('http://211.110.140.24/guamkorea/app/ajax.php',{button},function(data) {
-			
-			$('.main').prepend('<div class="carousel"></div>');
-			
-			jQuery.each(data,function(k,v){	
-				var carousel_div = `
-				  <div style='background:linear-gradient(35deg, rgba(2, 16, 94, 0.8) 0%, rgba(2, 16, 94, 0) 70%),
-					url(http://211.110.140.24/guamkorea/sub/${v.img_path});
-						background-size:cover; background-position: center;' class=carousel-cell>
-						<span class='txt_box'>
-							<div class='txt_1'>${v.txt_1}</div>
-							<div class='txt_2'>${v.txt_2}</div>
-							<div class='txt_line'></div>
-							<div class='txt_3'>${v.txt_3}</div>
-						</span>
-				  </div>`;
+    var button = 'SELECT_MAIN_BANNER';		
+    $.post('http://211.110.140.24/guamkorea/app/ajax.php',{button},function(data) {
+        
+        $('.main').prepend('<div class="carousel"></div>');
+        
+        jQuery.each(data,function(k,v){	
+            var carousel_div = `
+              <div style='background:linear-gradient(35deg, rgba(2, 16, 94, 0.8) 0%, rgba(2, 16, 94, 0) 70%),
+                url(http://211.110.140.24/guamkorea/sub/${v.img_path_m});
+                    background-size:cover; background-position: center;' class=carousel-cell>
+                    <span class='txt_box'>
+                        <div class='txt_1'>${v.txt_1}</div>
+                        <div class='txt_2'>${v.txt_2}</div>
+                        <div class='txt_line'></div>
+                        <div class='txt_3'>${v.txt_3}</div>
+                    </span>
+              </div>`;
 
-				$('.carousel').append(carousel_div);			
-			});
+            $('.carousel').append(carousel_div);			
+        });
 
-			var $carousel = $('.carousel').flickity({
-				autoPlay: 5000, 
-				wrapAround:true
-			});
+        var $carousel = $('.carousel').flickity({
+            autoPlay: 5000, 
+            wrapAround:true
+        });
 
-		},"json");
-		
-	}	
+    },"json");
+   
+}		
 	
 	
 	

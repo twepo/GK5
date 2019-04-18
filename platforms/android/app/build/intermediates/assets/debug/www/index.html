@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; media-src *" />
+
+    <title>괌한인회</title>
+</head>
+
+
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/pulltorefresh.js"></script>
+    
+
+
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+    <script src="src/flickity.js"></script> 
+    <link rel="stylesheet" href="src/flickity.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean" rel="stylesheet">
+    <link rel="stylesheet" href="src/fontawesome.css">
+    
+    
+    
+    
+    
+<style>
+
+	html { 
+		overflow-y: scroll;
+		font-family: 'Noto Sans KR', sans-serif;
+	}
+	
+	body{
+		margin: 0px;
+		background-color: #fafafa;
+		
+	}
+	
+	a{
+		text-decoration: none;
+		color: inherit;
+	}
+	
+	body.modalopen{
+		overflow: hidden;
+/*
+  		position: fixed;
+  		width: 100%;
+  		height: 100%;	
+*/
+	}	
+	
+	
+</style>
+
+<body>
+
+	
+	
+	
+	
+<style>	
+.flickity-viewport{
+	padding-top: 10px;
+	height: 215px!important;
+}
+	
+.flickity-button {
+	display: none;
+}
+	
+.flickity-page-dots{
+	bottom: 25px;
+	z-index:30;
+	
+}
+
+.flickity-page-dots .dot{
+	width: 5px;
+	height: 5px;
+	background: rgba(255,255,255,0.95);
+}
+
+.carousel-cell {	
+    width: 95%;	
+	margin-right: 20px;
+	border-radius: 10px;
+  	height: 200px;	
+	box-shadow: 0px 3px 10px rgba(0,0,0,.26);
+}
+
+	
+.carousel .txt_box{
+/*	background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);*/
+	color:white;	
+	width: 100%;
+	top:42px;
+	position: absolute;
+	display: block;
+	border-radius: 0px 0px 10px 10px;
+	text-align: left;	
+	font-weight: 700;
+}	
+	
+.carousel span div{
+	margin-left: 26px;
+	letter-spacing: -0.05em;
+}
+	
+	
+</style>		
+	
+	
+	
+	
+	
+<style>	
+	.nav{
+		position: fixed;
+		width: 100%;
+		height: 50px;
+		background-color: white;
+		box-shadow: 0 2px 7px 0 rgba(0,0,0,.15);
+		z-index:50;
+	}
+	
+	
+	
+	
+	
+	.top_nav{
+		width: 100%;
+		height: 100%;
+		display: inline-flex;
+	}
+	.top_nav div{
+		text-align: center;
+		display: inline-flex;
+		align-items:center;
+	}
+
+	
+	.top_center a{
+            display: inline-flex;
+            align-items: center;
+            margin: 0 auto;
+        }
+	
+	
+	.top_left{
+		width: 15%;
+		height: 100%;
+	}
+	
+	.top_left img{
+		margin: 0 auto;
+	}
+	
+	.top_center{
+		text-align: center;
+		width: 70%;
+	}
+	
+	.top_right{
+		width: 15%;
+		height: 100%;
+	}	
+	.top_right img{
+		margin: 0 auto;
+	}
+	
+	
+	
+	.sub_nav{
+            width: 100%;
+            height: 100%;
+            display: inline-flex;
+        }
+	
+	.sub_nav div{
+		text-align: center;
+		display: inline-flex;
+		align-items:center;
+	}
+	
+	
+	.search_input{
+		width: 10px;
+		height: 10px;
+		background-color: blue;
+	}
+		
+</style>	
+
+	
+
+
+	
+<div class="nav"></div>
+	
+	
+
+
+<style>
+	.search_page{
+		
+		display: none;
+		
+		background-color: white;
+		width: 100%;
+		z-index:50;
+		position: fixed;
+		height: 100vh;
+	}
+	
+	
+	.search_body{
+		height: 100%;
+		overflow : scroll;
+		padding-top: 20px;
+	}
+	
+	
+	.search_top{
+		width: 100%;
+		height: 50px;
+		display: inline-flex;
+	}	
+	
+	.search_top div{
+		display: inline-flex;
+		align-items:center;
+		text-align: center;
+	}	
+
+	
+	textarea:focus, input:focus{
+    	-webkit-tap-highlight-color: rgba(255, 255, 255, 0); 
+		-webkit-tap-highlight-color: transparent; 
+	}
+	
+	input[name=query]{
+		font-size: 16px;
+		border:none;	
+		color:#666;
+		border-bottom:2px solid #ccc;
+		width: 100%;
+		height: 40px;
+		padding-left: 15px;	
+		padding-top: 6px;
+	}
+	
+	input[type=text]:focus{
+		outline: none;
+ 		border-bottom: 2px solid rgba(81, 203, 238, .8);
+	}
+	
+	
+
+	
+	
+	a.body_category:last-child{
+		margin-bottom: 160px;
+		border-bottom: 1px solid #eee;		
+	}
+	
+	
+	a.body_category {	
+		display: block;
+		border-top: 1px solid #eee;
+		padding: 13px;
+		font-weight: 600;
+		padding-left: 30px;
+		font-size: 15px;
+		color: #333;
+		text-decoration: none;
+	}
+	
+</style>	
+		
+	
+	
+<div class="search_page">
+	
+	<div class="search_top">
+		<div class='top_left'>
+			<img class='icon_arrow' src="img/icon_left_arrow.svg" height=17px>
+		</div>
+		<div class='top_center'>
+			<input type="text" name="query" placeholder="Search">
+		</div>
+		<div class="top_right">
+				<img class='icon_search' src="img/icon_glass.svg" height=19px>
+		</div>
+	</div>	
+	<div class="search_body"></div>
+</div><!--//SEARCH_PAGE-->	
+<script>
+	
+//ACTION - SEARCH_PAGE에서 CATEGORY 클릭시 페이지 숨기기
+$('.search_body').on('click','a.body_category',function(){
+	
+	$('.search_page').hide();	
+	
+})
+
+	
+	
+$('.nav').on('click','.top_right', function(){	
+//  서치페이지 로드 LOAD
+	showSearchPage();	
+})
+	
+function showSearchPage(){	
+	$('.search_page').show();
+	
+	loadCategory();		
+	
+	$('input[name=query]').focus();
+}	
+	
+	
+</script>	
+	
+	
+	
+	
+<style>
+	.yb_body{
+/*		padding: 10px;*/
+		background-color: white;
+		padding-top: 10px;
+		padding-bottom: 70px;
+	}
+	.yb_list{
+		text-decoration: none;
+		background-color: white;
+		width: 100%;	
+		padding: 12px 20px;
+		box-sizing:border-box;
+		border-bottom: 1px solid #eee;
+		display: inline-flex;
+	}
+	
+	.yb_list:first-child{
+		margin-top: 5px;
+	}
+	
+	.yb_list:last-child{
+		margin-bottom: 80px;
+		border-bottom: 1px solid #eee;		
+	}
+	
+	.yb_list_left{
+		min-width:100px;
+		width: 100px;
+		height: 67px;
+		border-radius: 6px;
+	}
+	
+	.yb_list_right{
+		font-size: 13px;
+		letter-spacing: -0.05em;
+		padding-top: 6px;
+		padding-left: 13px;		
+	}
+	
+	.yb_list_right div{
+		margin-bottom: 3px;
+	}
+	
+	.company_kr{
+		color: #111;
+		font-weight: 600;
+	}
+	
+	
+	.company_en{
+		color:#777;
+		font-weight: 500;
+		font-size: 11px;
+	}
+	.address{
+		color:#999;
+		font-size: 10px;
+	}
+	
+	span.cat{
+		color: white;
+		font-size: 9px;
+		top:-2px;
+		position: relative;
+		margin-right: 3px;
+		padding: 1px 3px;
+		background-color: #4caf50;
+		border-radius: 4px;
+		
+	}
+	
+	.address i{
+		margin-right: 5px;
+	}
+	
+</style>	
+
+	
+	
+	
+	
+	
+<style>
+	.yb_view{
+		overflow:scroll;
+		height: 100%;
+		background-color: #fff;
+		width: 100%;
+		padding-bottom: 100px;
+	}
+	
+	.yb_view .flickity-viewport{
+		padding-top: 0;
+	}
+	
+	.yb_carousel_cell{
+		width: 100%;	
+		height: 200px;			
+	}
+	
+	.yb_view_bottom div{
+		letter-spacing: -0.03em;
+		padding: 0px 15px 0px 15px;
+
+	}
+	
+	.yb_view_bottom span.cat{
+		padding: 1px 4px;
+		font-size: 11px;
+		margin-right: 7px;
+	}
+
+	.yb_view_bottom .company_kr{
+		letter-spacing: -0.05em;
+		font-size: 18px;
+		padding-bottom: 3px;
+	}
+	
+	.yb_view_bottom .company_en{
+		font-size: 11.5px;
+		margin-left: 5px;
+		color: #aaa;
+		letter-spacing: -0.05em;
+		position: relative;
+		top:-1px;
+		
+	}
+	
+	.company_slogan{
+		font-size: 11px;
+		color: #333;
+		letter-spacing: -0.07em !important;
+		padding-bottom: 15px !important;
+		border-bottom: 1px solid #eee;
+	}
+	
+	
+	.yb_view_bottom .address{
+		font-size: 12px;
+		padding: 12px 15px 12px 15px;
+		color: #333;
+		border-bottom: 1px solid #eee;
+	}
+	
+	
+	.address i{
+		font-size: 13px;
+		color: #999;
+		width: 14px;
+		margin-right: 17px;
+		text-align: center;
+	}
+	
+	.address.title{
+		color: #000;
+		font-weight: 700;
+		font-size: 14px;
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+	
+
+	img.kakao{
+		width: 16px;
+		vertical-align: middle;
+	}
+	
+	#map{
+		padding: 0;
+	}
+	#map img{
+		width: 100% !important;
+	}
+	
+	.yb_view_bottom .content{
+		padding: 15px;
+	}
+	
+	
+</style>	
+	
+	
+	
+	
+	
+<script>
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+$(document).ready(function() {
+	//첫시동 디폴트값 지정
+	
+	if(!window.location.hash){
+		//만약 hash가 없으면 hash만 바꿔준다. 그러면 알아서 hashchange func가 작동함
+		window.location.hash = "#main";	
+	} else {
+		//hash가 있으면 그대로 따라간다.
+		routePage();
+	}	
+	
+})	
+	
+	
+	
+		
+$(window).on('hashchange', routePage);
+
+
+	
+	
+//CORE_ENGINE	
+function routePage(){
+	
+	
+	
+	var hash = location.hash.split("?")[0];
+	var no = location.hash.split("=")[1];
+	
+	
+	
+	if(hash == "#main"){
+		generateMainTop();
+		
+	} else {
+		
+		generateSubTop();	
+		
+	}
+	
+	
+	switch(hash){
+			
+		case '#main':
+			
+			
+			startMainBanner();
+			$('.main').empty().append('<div class="slide_box"></div>');
+			
+			loadRecent(0);						
+			$('.slide_box').after('<div class="slide_loading"><img height="55px" src="img/loading.gif"></div>');
+			
+			loadRecentScrollDectect();
+			
+			
+		break;
+
+			
+			
+		case '#yb_list':
+			
+			loadYBList(no);	
+			
+		break;
+			
+			
+		case '#yb_view':
+			
+			loadYBView(no);
+			
+		break;		
+			
+			
+	}
+}
+	
+
+	
+
+	
+function generateMainTop(){
+	
+	var div = `
+		<div class="top_nav">
+			<div class="top_left">
+				<img class='bars' src="img/icon_bars.svg" height=17.5px>
+			</div>
+			<div class="top_center">
+				<a href="#main">TEST
+					<img src="img/logo.png" class='logo' height=33px>
+				</a>
+			</div>
+			<div class="top_right">
+				<img class='icon_search' src="img/icon_glass.svg" height=19px>
+			</div>	
+		</div>
+	`;
+	
+	$('.nav').html(div);	
+}
+	
+	
+	
+function generateSubTop(){
+	
+	var div = `
+		<div class="sub_nav">
+			<div class="top_left">
+				<img class='arrow' src="img/icon_left_arrow.svg" height=17.5px>
+			</div>
+			<div class="top_center">
+				<a href="#main">
+					<img src="img/logo.png" class='logo' height=33px>
+				</a>
+			</div>
+			<div class="top_right">
+				<img class='icon_search' src="img/icon_glass.svg" height=19px>
+			</div>	
+		</div>
+	`;
+	
+	$('.nav').html(div);
+	
+}
+
+	
+	
+$('.nav').on('click','.top_left .arrow',function(){
+	
+    window.history.back();
+	
+})
+	
+	
+$('.search_top .top_left').click(function(){
+	
+	window.history.back();
+	
+	$('.search_page').hide();
+	
+})	
+		
+	
+	
+$(window).on('popstate', function () {
+//navigating할때는 무조건 search_page 닫기
+	
+	if($('.search_page').is(":visible")){
+		
+		$('.search_page').hide();
+	
+	}
+});
+	
+	
+	
+
+	
+
+
+	
+function loadYBView(no){
+
+		var button = 'SELECT_YB_VIEW';	
+		$.post('http://211.110.140.24/guamkorea/app/ajax.php',{button,no},function(data) {
+			
+			
+			var div = `<div class="yb_view">
+						<div class="yb_view_top">
+							<div class="yb_view_carousel"></div>
+						</div>
+						<div class="yb_view_bottom">
+							<div class='company_kr'><span class='cat'>${data[0].title}</span>${data[0].company_kr}
+													<span class='company_en'>${data[0].company_en}</span>
+							</div>
+							<div class='company_slogan'>${data[0].slogan}</div>
+
+
+							<div class='address'><i class="fas fa-mobile-alt"></i><a href="tel:${data[0].tel}">${data[0].tel}<a/></div>
+							<div class='address'><i class="fas fa-wifi"></i><a target="_blank" href="http://${data[0].website}">${data[0].website}</div>
+							<div class='address'><i class="far fa-envelope"></i><a href="mailto:${data[0].email}">${data[0].email}</a></div>
+							<div class='address'><i><img class="kakao" src="img/icon_kakao.svg"></i>
+								<a target='_blank' href='http://goto.kakao.com/@${data[0].kakao}'>${data[0].kakao}</a>
+							</div>
+							<div class='address'><i class="far fa-map"></i>${data[0].address}</div>
+							<div class='address title'>위치</div>
+							<div id='map'>
+<a href="https://www.google.com/maps/place/13.4368126,144.7061948/"><img src="https://maps.googleapis.com/maps/api/staticmap?center=13.4368126,144.7061948&zoom=13&scale=1&size=550x250&maptype=roadmap&key=AIzaSyCrZWoSMNHJbHnDI1WC36FIKmqEaiqicrY&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:%7C13.4368126,144.7061948"></a>
+							</div>
+							<div class='address title'>상세정보</div>
+							<div class='content'>${data[0].content}</div>
+						</div>
+
+
+						</div>
+					`;
+			
+			
+			$('.main').empty().append(div);
+					
+			var imgs = [data[0].imgpath,data[0].subimg_1,data[0].subimg_2,data[0].subimg_3,data[0].subimg_4];
+			$.each(imgs,function(k,v){
+				
+				if(v){		
+					var carousel_div = `
+						  <div style='background: url(http://211.110.140.24/guamkorea/sub/${v});
+								background-size:cover; background-position: center;' class='yb_carousel_cell'>	
+						  </div>
+						`;
+					}	
+				$('.yb_view_carousel').append(carousel_div);	
+		    })
+			
+						
+			var $carousel = $('.yb_view_carousel').flickity({
+				autoPlay: 5000, 
+				wrapAround:true
+			});
+			
+		},"json")
+	
+}	
+	
+	
+	
+	
+function loadYBList(cat_no){
+
+		$('.main').empty();
+	
+		var button = 'SELECT_YB_LIST';	
+		$.post('http://211.110.140.24/guamkorea/app/ajax.php',{button,cat_no},function(data) {
+			
+			jQuery.each(data,function(k,v){
+				var div = `<a class="yb_list" href="#yb_view?no=${v.no}">
+								<div class='yb_list_left'
+									style='background:url(http://211.110.140.24/guamkorea/sub/${v.imgpath});
+										   background-position: center;
+										   background-size: cover;'></div>
+								<div class='yb_list_right'>
+									<div class='company_kr'><span class='cat'>${v.title}</span><span>${v.company_kr}</span></div>
+									<div class='company_en'>${v.company_en}</div>
+									<div class='address'><i class="fas fa-map-marker-alt"></i>${v.address}</div>
+								</div>
+							</a>`;				
+				$('.main').append(div);
+			});	
+		},"json")
+}	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+function loadCategory(){
+	
+		$('.search_body').empty();
+	
+		var button = 'SELECT_YB_CATEGORY';
+		$.post('http://211.110.140.24/guamkorea/app/ajax.php',{button},function(data) {
+			
+			jQuery.each(data,function(k,v){
+				var div = `<a class="body_category" href='#yb_list?no=${v.no}'>${v.title}</a>`;				
+				$('.search_body').append(div);
+			});	
+		},"json")		
+}	
+	
+	
+	
+	
+	
+	
+	
+	
+function loadCompanyTitle(query){
+	
+		var button = 'SELECT_YB_TITLE';
+		$.post('http://211.110.140.24/guamkorea/app/ajax.php',{button,query},function(data) {
+			
+			$('.search_body').empty();
+			
+			jQuery.each(data,function(k,v){
+				var div = `<a class="body_category" href='#yb_view?no=${v.no}'>${v.company_kr}</a>`;				
+				$('.search_body').append(div);
+			});	
+			
+		},"json")		
+}		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+$('.search_body').scroll(function() {
+//서치모달 중간 스크롤시
+	
+	if($('input[name=query]').is(":focus")){
+   	//KEYBOARD ON인 상태일때, 키보드 없애기
+		$('input[name=query]').blur();
+	}
+	
+});	
+	
+	
+	
+	
+var timer;	
+$("input[name=query]").keyup(function(e){
+	
+	var query = $(this).val();
+	
+	clearTimeout(timer);
+	timer = setTimeout(function() {
+		
+			if(query.length==0){
+				loadCategory();
+				console.log("zero");
+			} else {
+				loadCompanyTitle(query);	
+			}
+		
+		
+			
+		
+    }, 300);
+});
+	
+	
+
+	
+	
+
+
+		
+	
+
+	
+	
+	
+	
+</script>	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+<style>	
+.txt_1{
+	font-size: 13px ;
+	margin-bottom: 5px;
+}
+.txt_2{
+	margin-left: 25px !important;
+	font-size: 25px;
+	line-height: 1.2;
+	text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+	
+.txt_line{
+	margin: 7px 0px 7px 0px;
+	width: 60px;
+	border-bottom:2px solid white;
+}	
+	
+.txt_3{
+	font-size: 12px;
+}
+</style>
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+<style>
+	.slide_box{
+		margin: 0 auto;
+		padding: 0px 10px 150px 10px;
+	}
+	
+	.slide{
+		background-color: white;
+		width: 100%;
+		border-radius:10px;
+		border: 1px solid #f3f3f3;
+		margin-bottom: 12px;
+		box-shadow: 0 2px 6px rgba(32, 33, 36, 0.07);
+	}
+	
+	.slide.ad{
+		height: 190px;
+	}
+	
+	
+	
+	.slide_head{		
+		border-radius: 10px 10px 0 0;
+		width: 100%;
+		height: 55px;
+		display: inline-flex;
+		padding: 13px;
+		box-sizing: border-box;
+
+	}
+	
+	.slide_body{		
+		color:#666;
+		font-size: 14px;		
+		padding: 8px 13px 20px 13px;
+	}
+	
+	
+	.body_title{
+		font-size: 13px;
+		color:#777;
+		font-weight: 500;
+		margin-bottom: 10px;
+	}
+	
+	
+	.head_left{
+		width: 40px;
+		height: 40px;
+		border-radius: 50px;	
+	}
+	
+	.head_right{
+		padding-left: 10px;
+		font-size: 14px;
+	}
+	
+	.head_name{
+		font-size: 13px;
+		color:#444;
+	}
+	
+	.head_time{
+		font-size: 10.5px;
+		color:#999;
+	}
+	
+	
+	.slide_foot{
+		
+		border-top:1px solid #eee;
+		border-radius: 0 0 10px 10px;
+		display: inline-flex;
+		width: 100%;
+	}
+	
+	.foot_button{
+		width: 50%;
+		height: 40px;	
+		justify-content:center;
+		display: inline-flex;
+		align-items:center;
+		font-size: 11px;
+		letter-spacing: -0.05em;
+		color: #888;
+	}
+	
+	.foot_button i{		
+		font-size: 13px;
+		color: #777;
+		margin-right: 5px;
+	}
+	
+	.foot_button:first-child{
+		border-radius: 0 0 0 10px;
+		border-right:1px solid #eee;
+	}
+	.foot_button:last-child{
+		border-radius: 0 0 10px 0;
+	}	
+</style>
+	
+	
+<style>
+	.slide_loading{
+		text-align: center;
+		width: 100%;		
+		position: relative;
+		bottom:140px;
+	}
+	
+	.slide_loading i{
+		margin-top: 10px;
+		font-size: 40px;
+		color: #bbb;
+	}
+</style>		
+	
+	
+<style>
+.main{
+	position: relative;
+	top:50px;
+	width: 100%;
+}	
+</style>
+	
+	
+<div class="main"></div>
+	
+	
+	
+	
+	
+	
+<script>
+	
+function loadRecentScrollDectect(){	
+	var timer;	
+	$(document).scroll(function() {
+		clearTimeout(timer); timer = setTimeout(function() {
+			if(window.location.hash=="#main"){
+				   if($(window).scrollTop() + $(window).height() > $(document).height() - 200) {
+					   var limit_start = $(".slide").length;
+					   loadRecent(limit_start);			  
+				   }
+			}
+		}, 400);
+	});
+	
+}	
+	
+	
+	
+
+function startMainBanner(){
+	
+		
+    var button = 'SELECT_MAIN_BANNER';		
+    $.post('http://211.110.140.24/guamkorea/app/ajax.php',{button},function(data) {
+        
+        $('.main').prepend('<div class="carousel"></div>');
+        
+        jQuery.each(data,function(k,v){	
+            var carousel_div = `
+              <div style='background:linear-gradient(35deg, rgba(2, 16, 94, 0.8) 0%, rgba(2, 16, 94, 0) 70%),
+                url(http://211.110.140.24/guamkorea/sub/${v.img_path_m});
+                    background-size:cover; background-position: center;' class=carousel-cell>
+                    <span class='txt_box'>
+                        <div class='txt_1'>${v.txt_1}</div>
+                        <div class='txt_2'>${v.txt_2}</div>
+                        <div class='txt_line'></div>
+                        <div class='txt_3'>${v.txt_3}</div>
+                    </span>
+              </div>`;
+
+            $('.carousel').append(carousel_div);			
+        });
+
+        var $carousel = $('.carousel').flickity({
+            autoPlay: 5000, 
+            wrapAround:true
+        });
+
+    },"json");
+   
+}		
+	
+	
+	
+function loadRecent(limit_start){
+	
+	
+		var button = 'SELECT_RECENT_BBS';
+		$.post('http://211.110.140.24/guamkorea/app/ajax.php',{button,limit_start},function(data) {
+			
+			if(data.length < 5){
+				$('.slide_loading').html('<i class="far fa-check-circle"></i>');
+			}
+			jQuery.each(data,function(k,v){
+				
+				if(k == 1){ adGenerator(); }				
+				var div = `
+				<div class='slide'>	
+					<div class='slide_head'>
+						<div class='head_left'
+							 style='background:url(https://static.vecteezy.com/system/resources/thumbnails/000/257/633/small/Realistic_DSLR_Camera_Vector.jpg);
+							 background-position: center;
+							 background-size: cover;'>			
+						</div>
+						<div class='head_right'>
+							<div class='head_name'>majorksm</div>
+							<div class='head_time'>category - 2 hours</div>
+						</div>
+					</div>
+					<div class='slide_body'>
+							<div class='body_title'>${v.title}</div>
+							<div class='body_content'>${v.content}</div>							
+					</div>
+					<div class="slide_foot">
+						<div class='foot_button'><i class="far fa-thumbs-up"></i>Like</div>	
+						<div class='foot_button'><i class="far fa-comment-dots"></i>Comment</div>	
+					</div>	
+				</div>`;
+				
+				$('.slide_box').append(div);
+				
+				$('.body_content img').css({'border-radius':'10px',
+											'box-shadow':'0px 3px 3px rgba(0,0,0,.1)','margin':'10px 0','width':'100%'});
+				
+				
+				
+			});
+			
+//			$('.slide_box').append('<div class="slide_loading"><img height="55px" src="img/loading.gif"></div>');
+			
+		},"json")	
+		
+	}	
+	
+	
+	
+	
+	
+function adGenerator(){
+
+
+        var last_no = window.localStorage.getItem('last_no');
+    
+        if(!last_no){
+            var last_no = Math.floor(Math.random() * 6) + 1;
+        } else {
+            var last_no = window.localStorage.getItem('last_no');
+        }
+
+        
+        var button = 'SELECT_MAIN_AD';	
+        $.post('http://211.110.140.24/guamkorea/app/ajax.php',{button,last_no},function(r) {
+
+            window.localStorage.setItem('last_no',r[0].no);
+                   
+            var ad_div = `<div class='slide ad'
+                                 style='background:url(http://211.110.140.24/guamkorea/sub/${r[0].img_path});
+                                 background-position:center;
+                                 background-size:cover;'>
+                            </div>`;
+        
+            $('.slide_box').append(ad_div);
+            
+        },"json")		
+    }
+	
+	
+	
+	
+</script>		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+<style>
+
+	.bottom{
+		background-color: white;
+		position: fixed;
+		bottom:0;
+		width: 100%;
+		height:52px;
+		border-top: 1px solid #e0e0e0;
+		display: inline-flex;
+		z-index:100;
+	}
+	
+	.bot_button{
+		padding: 8px;
+		text-align: center;
+		width: 20%;
+		height: 100%;
+	}
+	
+	.bot_button i{
+		color:#888;
+		font-size: 21px;
+	}
+	
+	.bot_text{
+		color:#999;
+		letter-spacing: -0.05em;
+		line-height: 1.6;
+		font-size: 9.7px;
+	}
+</style>	
+	
+<div class="bottom">
+	
+	<div class="bot_button">
+		<i class="far fa-newspaper"></i>
+		<div class='bot_text'>뉴스</div>
+	</div>
+	<div class="bot_button">
+		<i class="far fa-comment-dots"></i>
+		<div class='bot_text'>공지사항</div>
+	</div>
+	<div class="bot_button">
+		<i class="far fa-images"></i>
+		<div class='bot_text'>갤러리</div>
+	</div>
+	<div class="bot_button">
+		<i class="far fa-plus-square"></i>
+		<div class='bot_text'>후원하기</div>
+	</div>
+	<div class="bot_button">
+		<i class="fas fa-bars"></i>
+		<div class='bot_text'>메뉴</div>
+	</div>
+	
+
+</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</body>
+	
