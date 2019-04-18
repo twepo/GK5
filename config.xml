@@ -33,7 +33,11 @@
 
 
     <preference name="SplashScreenBackgroundColor" value="#fff" />
-    <preference name="SplashScreenDelay" value="5000"/>
+    <preference name="SplashScreenDelay" value="10000"/>
+    <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="ShowSplashScreenSpinner" value="false"/>
+    <preference name="SplashScreen" value="screen"/>
+
 
 
     <platform name="android">
