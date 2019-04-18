@@ -6,7 +6,7 @@
     <feature name="Device">
         <param name="browser-package" value="Device" />
     </feature>
-    <name>GK5</name>
+    <name>괌한인회</name>
     <description>
         Hello World sample application that responds to the deviceready event.
     </description>
@@ -23,5 +23,6 @@
     <allow-intent href="geo:*" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
-    <preference name="SplashScreenDelay" value="0" />
+    <preference name="SplashScreenBackgroundColor" value="#fff" />
+    <preference name="SplashScreenDelay" value="5000" />
 </widget>
